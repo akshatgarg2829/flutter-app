@@ -1,3 +1,5 @@
+import 'package:first/pages/home_page.dart';
+import 'package:first/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -5,14 +7,18 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Center(child: Container(child: Text("Hey akshat garg how is your day going?")))
-      )
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage(),
+      },
     );
   }
 }
